@@ -1,0 +1,116 @@
+<!--
+    TP1 : Interface (IFT2905) :
+    ---------------------------
+    Ce TP est présenté par :
+    ========================
+        - Nom : Waël ABOU ALI.
+        - Matricule : 20034365.
+        - Voir index.html pour explications.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tron Light Cycles Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<!--La fonction onbeforeunload sera pour confirmer la décision de quitter
+    le jeu vers la page index.-->
+<body onbeforeunload="returnToIndex()">
+    <div>
+        <!--        Les icons de menu en haut et à droite.  -->
+        <div class="up_menu">
+            <!--        Bouton avec icon(Freeze) -->
+            <input type="image" class="child_up_menu" src="img/snow.png" alt="snow"
+                   width="40" height="40" onclick="changeInterval(false)">
+            <!--        Bouton avec icon(SpeedUp) -->
+            <input type="image" class="child_up_menu" src="img/fire.png" alt="fire"
+                   width="40" height="40" onclick="changeInterval(true)">
+            <!--        Bouton avec icon(Pause) -->
+            <input type="image" class="child_up_menu" src="img/pause.png" alt="pause"
+                   width="40" height="40" onclick="pauseFunction(false, false)">
+            <!--        Bouton avec icon(Change color). -->
+            <div onclick="pauseFunction(false, true)" class="dropdown">
+                <input type="image" class="child_up_menu" src="img/color.png"
+                       alt="color" width="40" height="40">
+                <div id="colorDropdown" class="colorDropdown-content">
+                    <ul>
+                        <li>
+                            <input type="radio" name="player" id="player1"
+                                   onclick="pauseFunction(false, true)" checked>
+                            <label for="player1" class="playerAtt">player1
+                                <input type="color" id="player1_color"
+                                       onclick="pauseFunction(false, true)"
+                                       style="margin-left: 4px">
+                            </label><br>
+                        </li>
+                        <li>
+                            <input type="radio" name="player" id="player2"
+                                   value="player2" onclick="pauseFunction(false, true)">
+                            <label for="player2" class="playerAtt">player2
+                                <input type="color" id="player2_color" value="#ff0000"
+                                       onclick="pauseFunction(false, true)">
+                            </label><br><br>
+                            <input type="submit" value="Submit" class="playerAtt"
+                                   onclick="changeColor()">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--        Bouton avec icon(Settings). -->
+            <div onclick="pauseFunction(true, false)" class="dropdown">
+                <input type="image" id="settingsBtn" class="child_up_menu"
+                       src="img/settings.png" alt="settings" width="40"
+                       height="40">
+                <div id="myDropdown" class="dropdown-content">
+                    <ul>
+                        <li><input type="image" id="myBtn" class="menu li-dropdown"
+                                   src="img/new_game.png" alt="new_game" onclick="newGame(false, false)"></li>
+                        <li><input type="image" class="menu li-dropdown" src="img/reset.png"
+                                   alt="reset_game"
+                                   onclick="newGame(true, false)"></li>
+                    </ul>
+                </div>
+            </div>
+            <!--        Bouton avec icon(Quit). -->
+            <form action="index.html" id="form_block">
+                <input type="image" class="child_up_menu" src="img/quit_logo.png"
+                       alt="quit_logo" width="40" height="40">
+            </form>
+            <!--        Scores des deux joueurs.    -->
+            <table id="players">
+                <tr>
+                    <th id="player1_name" class="player1-att"></th>
+                    <th id="player2_name" class="player2-att"></th>
+                </tr>
+                <tr id="scores">
+                    <td id="player1_score" class="player1-att"></td>
+                    <td id="player2_score" class="player2-att"></td>
+                </tr>
+            </table>
+        </div>
+        <canvas id="myCanvas" width="1000" height="700"></canvas>
+        <!--        Menu New Game(YES/NO)-->
+        <div id="fullscreen-container" class="hide fullscreen">
+            <div id="content" class="modal-content modal-content-display">
+                <p class="font-p" id="p-message"></p>
+                <button class="btn_message info"
+                        onclick="detectWinner()">NO</button>
+                <button id="second_btn" class="btn_message info"
+                        onclick="startGame()">YES</button>
+            </div>
+        </div>
+        <!--        Menu Game Over(Joueur gagnant et bouton OK) -->
+        <div id="end_game" class="hide_message fullscreen">
+            <div id="end-content" class="modal-content end-modal-content-display">
+                <p class="font-p">Game Over!</p>
+                <p class="font-p" id="gameOver_message"></p>
+                <button class="btn_message info" id="return-main"
+                        onclick="location.href='index.html'">OK</button>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/script.js"></script>
+</body>
+</html>

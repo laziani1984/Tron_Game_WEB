@@ -1,0 +1,371 @@
+
+/*
+   TP1 : Interface (IFT2905) :
+   ---------------------------
+   Ce TP est présenté par :
+   ========================
+   - Nom : Waël ABOU ALI.
+   - Matricule : 20034365.
+   - Voir index.html pour explications.
+*/
+
+
+/* elements */
+/* -------- */
+
+html, body {
+    width:  100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background : url(../img/tron_index.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+header {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(-35px, -20px);
+    -webkit-transform: translate(-35px, -20px);
+    transform:translate(-35px, -20px);
+}
+
+ul {
+    list-style-type: none;
+    margin: 10px -60px -60px;
+}
+
+li {
+    display: block;
+    width: 100%;
+    position: center;
+    opacity: 0.7;
+    margin-left: 22.5%;
+    padding-top: 10px;
+}
+
+canvas {
+    display: inline;
+}
+
+footer	{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: "Comic Sans MS", Helvetica, sans-serif;
+}
+
+
+/*-----------------------------Index.html----------------------------*/
+
+#overlay{
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #333;
+    background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+.container .btn {
+    position: absolute;
+    opacity: 0.6;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+}
+
+.container .btn:hover {
+    background-color: black;
+    color: white;
+    opacity: 1.0;
+}
+
+/*----------------------------game.html--------------------------------*/
+
+.up_menu {
+    position: absolute;
+    top : 0;
+    right: 50px;
+    padding: 10px;
+}
+
+.child_up_menu {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    background: black;
+}
+
+#myCanvas {
+    border: 5px solid #000000;
+    position: absolute;
+    left: 0;
+    margin: 20px;
+    opacity: 0.8;
+}
+
+.li-dropdown {
+    width: 300px;
+    height: 100px;
+}
+
+.dropdown {
+    position: initial;
+    display: inline-block;
+    opacity: 0.9;
+}
+
+.dropdown:hover {
+    opacity: 1;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 500px;
+    height: 250px;
+    background: white;
+    overflow: hidden;
+    border-radius: 25px;
+
+}
+
+.colorDropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    alignment: left;
+    width: 300px;
+    height: 150px;
+    background: white;
+    overflow: hidden;
+    border-radius: 25px;
+    opacity: 0.9;
+
+}
+
+.colorDropdown-content li {
+    padding: 0;
+}
+
+.palette {
+    display: block;
+    z-index: 1;
+}
+
+#colorDropdown {
+    width: 300px;
+    height: 150px;
+    opacity: 0.8;
+}
+
+#colorDropdown:hover {
+    opacity: 1;
+}
+
+#form_block { display: inline-block; }
+
+#return-main {
+    margin-left: 190px;
+    z-index: 10000;
+}
+
+#big-size {
+    top : 10px;
+    font-size: 30px;
+}
+
+#second_btn { right: 20px; }
+
+.info { color: dodgerblue; }
+
+.info:hover {
+    background: #2196F3;
+    color: white;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menu { opacity: 0.5; }
+
+.menu:hover { opacity: 1.0; }
+
+.playerAtt {
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 25px;
+}
+
+.player2-att { padding-left: 50px; }
+
+#scores { text-align: center; }
+
+#players {
+    font-family: "Comic Sans MS", Helvetica, sans-serif;
+    font-size: 50px;
+    padding: 100px 0 0 20px;
+    color: orangered;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+}
+
+.modal-content {
+    border-radius: 20%;
+    alignment: center;
+    width: 400px;
+    height: 200px;
+    left: 350px;
+    top: 200px;
+    position: absolute; /* Stay in place */
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+}
+
+#fullscreen-container { z-index: 1000; }
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(90, 90, 90, 0.5);
+}
+
+.show {
+    display: block;
+    z-index: 999;
+}
+
+.show_message {
+    display: block;
+    z-index: 9999;
+    opacity: 0.8;
+}
+
+.show_message:hover {
+    opacity: 1;
+}
+
+.hide_message { display: none; }
+
+.hide { display: none; }
+
+.modal-content-display { display: none; }
+
+.end-modal-content-display { display: block; }
+
+.font-p {
+    font-family: "Comic Sans MS", sans-serif;
+    text-align: center;
+}
+
+.btn_message {
+    border-radius: 15px;
+    text-align: center;
+    top: 150px;
+    margin-left: 70px;
+    background-color: inherit;
+    display: inline-block;
+    justify-content: center;
+    padding: 14px 28px;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.show {
+    display: block;
+    z-index: 999;
+}
+
+.show_message {
+    display: block;
+    z-index: 9999;
+}
+
+.hide_message { display: none; }
+
+.hide { display: none; }
+
+#fullscreen-container { z-index: 1000; }
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(90, 90, 90, 0.5);
+}
+
+#return-main {
+    margin-left: 190px;
+    z-index: 10000;
+}
+
+#big-size {
+    top : 10px;
+    font-size: 30px;
+}
